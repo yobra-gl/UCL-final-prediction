@@ -164,7 +164,7 @@ Final probabilities are a 50/50 weighted average of the Poisson model and ML mod
 
 ## 👤 Author
 
-**Your Name**  
+**Brian Mburu**  
 [GitHub](https://github.com/yobra-gl) · [LinkedIn](https://www.linkedin.com/in/brian-mburu-1787142a5)
 
 ---
