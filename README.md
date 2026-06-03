@@ -1,5 +1,9 @@
  🏆 UEFA Champions League Final 2026 — Winner Predictor
 
+git add README.md
+git commit -m "Post-match update: PSG beat Arsenal 4-3 on penalties"
+git push
+
 > **PSG vs Arsenal | Budapest, May 30 2026**  
 > A machine learning project to predict the winner of the 2025/26 UEFA Champions League Final using a Poisson Goal Model and Logistic Regression trained on historical UCL Finals data.
 
