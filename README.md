@@ -133,13 +133,14 @@ Final probabilities are a 50/50 weighted average of the Poisson model and ML mod
 
 > **To be updated after May 30, 2026**
 
+
 | | Predicted | Actual |
 |---|---|---|
-| Winner | TBD | TBD |
-| Score | — | TBD |
-| Extra Time / Penalties | — | TBD |
-| Prediction Correct | — | TBD |
-| Brier Score | — | TBD |
+| Winner | PSG | PSG |
+| Score | — | 1-1 |
+| Extra Time / Penalties | — | 4-3 |
+| Prediction Correct | — | Yes |
+| Brier Score | — | 0.1336 |
 
 ---
 
