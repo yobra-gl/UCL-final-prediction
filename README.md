@@ -1,8 +1,4 @@
- 🏆 UEFA Champions League Final 2026 — Winner Predictor
-
-git add README.md
-git commit -m "Post-match update: PSG beat Arsenal 4-3 on penalties"
-git push
+🏆 UEFA Champions League Final 2026 — Winner Predictor
 
 > **PSG vs Arsenal | Budapest, May 30 2026**  
 > A machine learning project to predict the winner of the 2025/26 UEFA Champions League Final using a Poisson Goal Model and Logistic Regression trained on historical UCL Finals data.
@@ -26,7 +22,7 @@ git push
 
 This project builds a machine learning pipeline that predicts the winner of the 2026 UCL Final. It combines two complementary approaches:
 
-- **Poisson Goal Model** — estimates the probability of every possible scoreline based on each team's attack and defensive strength throughout the tournament. This is the same class of model used by professional bookmakers.
+- **Poisson Goal Model** — estimates the probability of every possible scoreline based on each team's attack and defensive strength throughout the tournament. This is the same class of model used by major sports analytics firms like FiveThirtyEight and ESPN. The model assumes that the number of goals scored by each team in a match follows a Poisson distribution, parameterized by their offensive and defensive strength relative to the tournament average.
 - **Logistic Regression** — trained on historical UCL Final data from 2000–2025, using features like goals scored, defending champion status, and coach experience.
 
 The two models are then **ensembled** to produce a final win probability for each team.
@@ -36,15 +32,15 @@ The two models are then **ensembled** to produce a final win probability for eac
 ## 🗂️ Project Structure
 
 ```
-ucl-final-predictor/
-├── ucl_final_predictor.ipynb   ← Main notebook (start here)
-├── README.md                   ← You are here
-├── requirements.txt            ← Python dependencies
-└── outputs/
-    ├── eda_features.png        ← EDA charts
-    ├── scoreline_matrix.png    ← Poisson heatmap
-    ├── feature_importance.png  ← Model coefficients
-    └── final_prediction.png    ← Final probability chart
+UCL-final-prediction/
+├── ucl_final_predictor.ipynb       ← Main notebook (start here)
+├── UCL_final predictor.ipynb       ← Alternative notebook version
+├── README.md                       ← You are here
+├── eda_features.png                ← EDA charts
+├── feature_correlations.png        ← Feature correlation heatmap
+├── scoreline_matrix.png            ← Poisson probability heatmap
+├── feature_importance.png          ← Model coefficients
+└── final_prediction.png            ← Final probability chart
 ```
 
 ---
@@ -53,8 +49,8 @@ ucl-final-predictor/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yobra-gl/ucl-final-predictor.git
-cd ucl-final-predictor
+git clone https://github.com/yobra-gl/UCL-final-prediction.git
+cd UCL-final-prediction
 ```
 
 ### 2. Install dependencies
@@ -114,13 +110,13 @@ Goals in football follow a Poisson distribution. For each team we compute an **e
 λ = attack_strength × opponent_defensive_weakness × avg_ucl_goals_per_game
 ```
 
-We then calculate the probability of every scoreline from 0–0 up to 7–7, and sum them to get overall win/draw/loss probabilities. Draws are split equally between the two teams (to account for extra time and penalties).
+We then calculate the probability of every scoreline from 0–0 up to 7–7, and sum them to get overall win/draw/loss probabilities. Draws are split equally between the two teams (to account for extra time and penalty shootouts in the knockout stage). This approach is widely used in sports forecasting and provides a principled, probabilistic framework for goal prediction.
 
 ### Logistic Regression
-Trained on 52 data points (26 UCL finals × 2 teams per final, 2000–2025). Validated using **Leave-One-Out Cross-Validation** — the best strategy for small datasets. Features are standardised with `StandardScaler` before training.
+Trained on 52 data points (26 UCL finals × 2 teams per final, 2000–2025). Validated using **Leave-One-Out Cross-Validation** — the best strategy for small datasets. Features are standardized using z-score normalization to ensure coefficients are comparable across different scales. The model outputs a probability between 0 and 1 representing the likelihood of victory.
 
 ### Ensemble
-Final probabilities are a 50/50 weighted average of the Poisson model and ML model outputs. The weights can be adjusted in the notebook.
+Final probabilities are a 50/50 weighted average of the Poisson model and ML model outputs. The weights can be adjusted in the notebook to emphasize one model over the other based on your confidence in each approach.
 
 ---
 
